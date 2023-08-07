@@ -1,7 +1,7 @@
 Config { font = "Iosevka:pixelsize=14:antialias=true:hinting=true"
        , additionalFonts = ["Droid Sans M Nerd Font:pixelsize=10", 
 			    "FontAwesome:pixelsize=10"]
-       , borderColor = "#333333"
+       , borderColor = "#000000"
        , border = FullB
        , bgColor = "#333333"
        , fgColor = "#ebdbb2"
@@ -25,23 +25,25 @@ Config { font = "Iosevka:pixelsize=14:antialias=true:hinting=true"
                         , "--high"  , "red"
                         ] 36000
                     , Run Cpu
-                        [ "-L", "3"
+                        [ "--template", "<fn=1>\xf4bc </fn> <total>%"  
+			, "-L", "3"
                         , "-H", "50"
                         , "--high"  , "red"
                         , "--normal", "green"
                         ] 10
                     , Run Alsa "default" "Master"
-                        [ "--template", "<volume>"
+                        [ "--template", "<fn=1>\xf057e </fn> <volume>"
                         , "--suffix"  , "True"
                         , "--"
                         , "--on", ""
-                        ]
+                        ] 
+		    , Run Battery
+			[ "--template", "<leftvbar>" ] 600
                     , Run Memory ["--template", "Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Date "%a %Y-%m-%d <fc=#c24e00>%H:%M</fc>" "date" 10
+                    , Run Date "<fn=1>\xeab0 </fn>%a %Y-%m-%d <fc=#990000>| <fn=1>\xe641 </fn>%H:%M |</fc>" "date" 10
                     , Run XMonadLog
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %alsa:default:Master% | %cpu% | %memory% * %swap% | %date% "
-       } textOutputFormat = Ansi
+       , template = "%XMonadLog% }{ %alsa:default:Master% <fc=#990000>|</fc> %cpu% <fc=#990000>|</fc> %memory% <fc=#990000>|</fc> %date% %battery% "
+       textOutputFormat = Ansi

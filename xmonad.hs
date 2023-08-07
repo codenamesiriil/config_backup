@@ -59,12 +59,12 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["home","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
 myNormalBorderColor  = "#333333"
-myFocusedBorderColor = "#c24e00"
+myFocusedBorderColor = "#990000"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -264,7 +264,7 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-	spawnOnce "feh --bg-fill Pictures/moon.jpeg &"
+	spawnOnce "feh --bg-fill Pictures/pluto.jpeg &"
 	spawnOnce "compton &"
 
 ------------------------------------------------------------------------
@@ -283,7 +283,7 @@ myXmobarPP = def
    	{ ppSep             = orange " • "
    	--, ppWsSep           = orange " • "
 	, ppTitleSanitize   = xmobarStrip
-   	, ppCurrent         = white . wrap " " "" . xmobarBorder "Top" "#c24e00" 2
+   	, ppCurrent         = white . wrap " " "" . xmobarBorder "Top" "#990000" 2
     	, ppHidden          = white . wrap " " ""
     	, ppHiddenNoWindows = lowWhite . wrap " " ""
     	, ppUrgent          = red . wrap (yellow "!") (yellow "!")
@@ -300,7 +300,7 @@ myXmobarPP = def
     	ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
 
     	blue, lowWhite, orange, red, white, yellow :: String -> String
-    	orange   = xmobarColor "#c24e00" ""
+    	orange   = xmobarColor "#990000" ""
     	blue     = xmobarColor "#458588" ""
     	white    = xmobarColor "#ebdbb2" ""
     	yellow   = xmobarColor "#f1fa8c" ""
