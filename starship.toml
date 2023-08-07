@@ -2,10 +2,22 @@
 
 # Use custom format
 
-format = '''
-[┌─\( $username$hostname$directory$git_status\)](bold green)
-[└─>](bold green)
-'''
+# format = '''
+# [┌─\( $username$hostname$directory$git_status\)](bold green)
+# [└─>](bold green)
+# '''
+
+format = """
+[](#2a2a2a)\
+$username\
+[](bg:#990000 fg:#2a2a2a)\
+$directory\
+[](bg:#bebebe fg:#990000)\
+$git_branch\
+$git_status\
+[](fg:#bebebe)\
+""" 
+
 
 scan_timeout = 10    # Wait 10 milliseconds for starship to check files under the current directory.
 add_newline = false  # Disable the blank line at the start of the prompt
@@ -13,9 +25,20 @@ palette = 'foo'      # Set 'foo' as custom color palette
 
 [username]
 show_always = true
+style_user = "fg:#990000 bg:#2a2a2a"
+format = '[ $user ]($style)'
 
-[git]
-show_always = true
+[directory]
+style = "fg:#bebebe bg:#990000" 
+format = '[ $path ]($style)'
+
+[git_branch]
+style = "fg:#990000 bg:#bebebe"
+format = '[ $symbol$branch ]($style)'
+
+[git_status]
+style = "fg:#990000 bg:#bebebe"
+format = '[ $all_status$ahead_behind ]($style)'
 
 [palettes.foo]       # Define custom colors
 blue = '21'          # Overwrite existing color
