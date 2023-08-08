@@ -22,6 +22,10 @@
 
 runtime! debian.vim
 
+colorscheme gruvbox
+set background=dark
+"hi Normal guibg=NONE ctermbg=NONE
+
 " Uncomment the next line to make Vim more Vi-compatible
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes
 " numerous options, so any other options should be set AFTER changing
@@ -30,11 +34,11 @@ runtime! debian.vim
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
-"syntax on
+syntax on
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-"set background=dark
+"set background=NONE
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -67,6 +71,7 @@ nmap Q <Nop>
 set noerrorbells visualbell t_vb=
 set mouse+=a
 
+
 " nnoremap <Left>  <nop> 
 " nnoremap <Right> <nop> 
 " nnoremap <UP>    <nop> 
@@ -79,6 +84,11 @@ set mouse+=a
 
 filetype plugin on
 syntax on
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 call plug#begin('~/.vim/plugged')
 Plug 'tidalcycles/vim-tidal'
@@ -93,6 +103,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dusans/vim-hardmode'
+Plug 'tribela/vim-transparent'
 call plug#end()
 
 let g:airline#extensions#tabline#left_sep = ' '

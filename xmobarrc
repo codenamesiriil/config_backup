@@ -32,18 +32,20 @@ Config { font = "Iosevka:pixelsize=14:antialias=true:hinting=true"
                         , "--normal", "green"
                         ] 10
                     , Run Alsa "default" "Master"
-                        [ "--template", "<fn=1>\xf057e </fn> <volume>"
+                        [ "--template", "<fn=1>\xf057e </fn><volume>"
                         , "--suffix"  , "True"
                         , "--"
                         , "--on", ""
                         ] 
+		    , Run Com "~/Documents/_scripts/print_wifi.sh" [] "wifi" 3600 
 		    , Run Battery
 			[ "--template", "<leftvbar>" ] 600
                     , Run Memory ["--template", "Mem: <usedratio>%"] 10
                     , Run Date "<fn=1>\xeab0 </fn>%a %Y-%m-%d <fc=#990000>| <fn=1>\xe641 </fn>%H:%M |</fc>" "date" 10
                     , Run XMonadLog
+		    , Run UnsafeStdinReader
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %alsa:default:Master% <fc=#990000>|</fc> %cpu% <fc=#990000>|</fc> %memory% <fc=#990000>|</fc> %date% %battery% "
+       , template = "%XMonadLog%  }{ %alsa:default:Master% <fc=#990000>|</fc> %cpu% <fc=#990000>|</fc> %memory% <fc=#990000>|</fc> %date% %battery% "
        textOutputFormat = Ansi
