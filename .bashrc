@@ -103,9 +103,8 @@ alias vw='vim -c VimwikiIndex'
 alias ms='nohup ~/.appimage/MuseScore/MuseScore4.AppImage &'
 alias cc='gcc -Wall -Werror -Wextra -g'
 alias lock='i3lock --color=000000'
-alias francinette='~/francinette/tester.sh'
-alias paco='~/francinette/tester.sh'
-
+alias cbu='bash $HOME/Documents/_scripts/config_backup.sh'
+alias gitt='cat $HOME/Documents/_scripts/.token.txt'
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
