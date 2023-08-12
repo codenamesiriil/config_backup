@@ -15,6 +15,7 @@ $directory\
 [](bg:#bebebe fg:#990000)\
 $git_branch\
 $git_status\
+$python\
 [](fg:#bebebe)\
 """ 
 
@@ -31,6 +32,13 @@ format = '[ $user ]($style)'
 [directory]
 style = "fg:#bebebe bg:#990000" 
 format = '[ $path ]($style)'
+
+[python]
+symbol = ''
+style = "fg:#990000 bg:#bebebe"
+pyenv_version_name = true
+pyenv_prefix = ''
+format = '[ $symbol $virtualenv ]($style)'
 
 [git_branch]
 style = "fg:#990000 bg:#bebebe"
